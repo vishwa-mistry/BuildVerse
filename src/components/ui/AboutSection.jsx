@@ -32,7 +32,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section style={{ padding: '6rem 0', position: 'relative' }}>
+    <section id="about" style={{ padding: '6rem 0', position: 'relative' }}>
       <div className="container">
         
         <motion.div 

@@ -27,7 +27,7 @@ export default function Footer() {
           
           <div className={styles.linkGroup}>
             <h4>Community</h4>
-            <Link href="/about">About Us</Link>
+            <Link href="/#about">About Us</Link>
             <Link href="/faq">FAQ</Link>
             <a href="https://github.com/MistryVishwa/BuildVerse" target="_blank" rel="noreferrer">GitHub</a>
           </div>
