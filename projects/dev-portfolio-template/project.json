@@ -1,15 +1,16 @@
 {
   "title": "Developer Portfolio Template",
-  "description": "A minimal, highly customizable portfolio template for developers. Built with Next.js, Framer Motion, and Tailwind CSS for rapid deployment.",
+  "description": "A minimal, highly customizable portfolio template for developers. Built with Next.js, Framer Motion, and Tailwind CSS for rapid deployment and ultra-smooth animations.",
   "author": {
-    "name": "MistryVishwa",
+    "name": "Vishwa",
     "github": "MistryVishwa"
   },
   "tags": [
-    "React",
+    "Next.js",
     "Template",
-    "CSS"
+    "CSS",
+    "React",
+    "Portfolio"
   ],
-  "entry": "index.html",
-  "thumbnail": "thumbnail.svg"
+  "demoUrl": "https://portfolio-template.vercel.app"
 }

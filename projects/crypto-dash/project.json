@@ -1,15 +1,16 @@
 {
   "title": "Crypto Dashboard",
-  "description": "A beautiful, real-time cryptocurrency tracking dashboard utilizing WebSockets and advanced charting libraries.",
+  "description": "A beautiful, real-time cryptocurrency tracking dashboard utilizing WebSockets and advanced charting libraries. Features dark mode and premium glassmorphic UI.",
   "author": {
-    "name": "MistryVishwa",
+    "name": "Vishwa",
     "github": "MistryVishwa"
   },
   "tags": [
-    "API",
     "React",
-    "Dashboard"
+    "API",
+    "Dashboard",
+    "CSS",
+    "Finance"
   ],
-  "entry": "index.html",
-  "thumbnail": "thumbnail.svg"
+  "demoUrl": "https://crypto-dashboard.vercel.app"
 }

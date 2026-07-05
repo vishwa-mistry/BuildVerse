@@ -39,7 +39,7 @@ export default function ProjectCard({ project, index = 0 }) {
     >
       {/* Cover Image Section */}
       <div 
-        onClick={() => router.push(`/projects/${project.slug}`)}
+        onClick={() => window.open(project.demoUrl || project.url || `https://github.com/${project.author.github}`, '_blank')}
         style={{ 
           height: '220px', 
           width: '100%', 
@@ -68,7 +68,7 @@ export default function ProjectCard({ project, index = 0 }) {
 
       {/* Card Content */}
       <div className={styles.cardBody}>
-        <div style={{ cursor: 'pointer' }} onClick={() => router.push(`/projects/${project.slug}`)}>
+        <div style={{ cursor: 'pointer' }} onClick={() => window.open(project.demoUrl || project.url || `https://github.com/${project.author.github}`, '_blank')}>
           <h3 className={styles.title}>{project.title}</h3>
           <p className={styles.description}>{project.description}</p>
         </div>
@@ -85,17 +85,9 @@ export default function ProjectCard({ project, index = 0 }) {
         <p className={styles.authorLine}>by <strong>{project.author.name}</strong></p>
 
         <div className={styles.cardFooter}>
-          <a href={`https://github.com/${project.author.github}`} target="_blank" rel="noreferrer" className={styles.actionBtn}>
-            Source
-          </a>
-          {project.demoUrl && (
-            <a href={project.demoUrl} target="_blank" rel="noreferrer" className={styles.actionBtn}>
-              Preview
-            </a>
-          )}
-          <Link href={`/projects/${project.slug}`} className={styles.openBtn}>
+          <a href={project.demoUrl || project.url || `https://github.com/${project.author.github}`} target="_blank" rel="noreferrer" className={styles.openBtn}>
             Open
-          </Link>
+          </a>
         </div>
       </div>
     </motion.div>

@@ -2,15 +2,14 @@
   "title": "Task Master Pro",
   "description": "A comprehensive, high-performance task management board featuring drag-and-drop mechanics, real-time sync, and detailed productivity analytics.",
   "author": {
-    "name": "MistryVishwa",
+    "name": "Vishwa",
     "github": "MistryVishwa"
   },
   "tags": [
     "React",
-    "CSS",
-    "App",
-    "Productivity"
+    "Dashboard",
+    "Productivity",
+    "JavaScript"
   ],
-  "entry": "index.html",
-  "thumbnail": "thumbnail.svg"
+  "demoUrl": "https://task-master-pro.vercel.app"
 }
