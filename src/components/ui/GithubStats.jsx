@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FolderGit2, Users, Code2, GitCommit } from "lucide-react";
+import CountUp from "react-countup";
 export default function GithubStats({ styles }) {
   const [stats, setStats] = useState({
     projects: 0,
@@ -63,29 +64,59 @@ export default function GithubStats({ styles }) {
   }, []);
 
   const statItems = [
-    { icon: FolderGit2, label: "Total Projects", value: stats.loading ? "..." : stats.projects },
-    { icon: Users, label: "Active Contributors", value: stats.loading ? "..." : stats.contributors },
-    { icon: GitCommit, label: "Total Contributions", value: stats.loading ? "..." : stats.contributions },
-    { icon: Code2, label: "Total Pull Requests", value: stats.loading ? "..." : stats.pullRequests }
+    { icon: FolderGit2, label: "Total Projects", value: stats.projects },
+    { icon: Users, label: "Active Contributors", value: stats.contributors },
+    { icon: GitCommit, label: "Total Contributions", value: stats.contributions },
+    { icon: Code2, label: "Total Pull Requests", value: stats.pullRequests }
   ];
 
   return (
-    <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${styles?.statsGrid || ''}`}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', width: '100%' }}>
       {statItems.map((stat, i) => (
         <motion.div 
           key={i}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
+          whileHover={{ y: -5, boxShadow: "0 10px 30px -10px rgba(168, 85, 247, 0.3)" }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-          className={`glass-panel ${styles?.statCard || ''}`}
-          style={{ padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '1rem' }}
+          transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
+          className={`glass-panel`}
+          style={{ 
+            padding: '2rem 1.5rem', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            textAlign: 'center', 
+            gap: '1rem',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            background: 'linear-gradient(145deg, rgba(30,30,35,0.4) 0%, rgba(20,20,25,0.4) 100%)',
+            transition: 'border-color 0.3s ease'
+          }}
         >
-          <stat.icon size={32} className={styles?.statIcon || ''} style={!styles?.statIcon ? { color: '#a855f7', marginBottom: '0.5rem' } : {}} />
-          <h3 className="heading-2" style={{ margin: 0 }}>
-            {stat.value}{!stats.loading && stat.value > 0 ? '+' : ''}
+          <div style={{ 
+            padding: '1rem', 
+            borderRadius: '50%', 
+            background: 'rgba(168, 85, 247, 0.1)', 
+            color: '#a855f7',
+            marginBottom: '0.5rem'
+          }}>
+            <stat.icon size={28} />
+          </div>
+          <h3 className="heading-2" style={{ margin: 0, fontSize: '2.5rem', fontWeight: 'bold' }}>
+            {stats.loading ? (
+              <span style={{ opacity: 0.5 }}>...</span>
+            ) : (
+              <CountUp 
+                end={stat.value} 
+                duration={2.5} 
+                separator="," 
+                suffix={stat.value > 0 && stat.label !== "Total Pull Requests" ? "+" : ""} 
+              />
+            )}
           </h3>
-          <p className="text-muted" style={{ margin: 0 }}>{stat.label}</p>
+          <p className="text-muted" style={{ margin: 0, fontWeight: '500', fontSize: '0.95rem', letterSpacing: '0.5px' }}>
+            {stat.label}
+          </p>
         </motion.div>
       ))}
     </div>
