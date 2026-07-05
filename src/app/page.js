@@ -147,12 +147,17 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className={styles.sectionHeader}
-            style={{ marginBottom: '1.5rem' }}
+            style={{ marginBottom: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem' }}
           >
-            <h2 className="heading-2">Featured Projects</h2>
-            <Link href="/projects" className={styles.viewAll}>
-              View all <ArrowRight size={16} />
-            </Link>
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <h2 className="heading-2">Explore Projects in BuildVerse</h2>
+              <Link href="/projects" className={styles.viewAll}>
+                View all <ArrowRight size={16} />
+              </Link>
+            </div>
+            <p className="text-muted" style={{ fontSize: '1.05rem', marginTop: '0.25rem' }}>
+              Every folder under <span style={{ background: 'rgba(168, 85, 247, 0.15)', color: 'var(--primary)', padding: '0.15rem 0.5rem', borderRadius: '6px', fontWeight: '500', margin: '0 0.2rem' }}>Projects/</span> shows up here automatically. Submit your open-source work and get featured in the community!
+            </p>
           </motion.div>
           
           <ProjectsFilter 

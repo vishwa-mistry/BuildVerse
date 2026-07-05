@@ -8,12 +8,12 @@ export default function ProjectsFilter({ search, setSearch, activeCategory, setA
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '3rem' }}>
       
       {showTitle && (
-        <div style={{ marginBottom: '1rem' }}>
+        <div style={{ marginBottom: '1.5rem' }}>
           <h1 style={{ fontSize: '3.5rem', fontWeight: '800', letterSpacing: '-0.02em', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            Projects in this repo
+            Explore Projects in BuildVerse
           </h1>
           <p className="text-muted" style={{ fontSize: '1.15rem' }}>
-            Every folder under <span style={{ background: 'rgba(168, 85, 247, 0.15)', color: 'var(--primary)', padding: '0.2rem 0.6rem', borderRadius: '6px', fontWeight: '500', margin: '0 0.2rem' }}>Projects/</span> shows up here automatically.
+            Every folder under <span style={{ background: 'rgba(168, 85, 247, 0.15)', color: 'var(--primary)', padding: '0.2rem 0.6rem', borderRadius: '6px', fontWeight: '500', margin: '0 0.2rem' }}>Projects/</span> shows up here automatically. Submit your open-source work and get featured in the community!
           </p>
         </div>
       )}
