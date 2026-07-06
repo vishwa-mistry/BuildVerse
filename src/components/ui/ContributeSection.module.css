@@ -17,41 +17,52 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   margin-bottom: 4rem;
 }
 
 .card {
-  background: linear-gradient(145deg, rgba(30, 30, 35, 0.6) 0%, rgba(20, 20, 25, 0.8) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: var(--radius);
   padding: 2.5rem 2rem;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(145deg, rgba(30,30,35,0.5) 0%, rgba(20,20,25,0.5) 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  transition: all 0.4s ease;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  border-color: rgba(168, 85, 247, 0.4);
-  box-shadow: 0 20px 40px -15px rgba(168, 85, 247, 0.2);
+  box-shadow: 0 15px 30px -10px rgba(168, 85, 247, 0.2);
 }
 
-.stepNumber {
-  font-size: 1.5rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #f59e0b, #fbbf24);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 1rem;
-  font-family: monospace;
+.glow {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.iconWrapper {
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardTitle {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: var(--foreground);
@@ -61,11 +72,12 @@
   color: var(--muted-foreground);
   line-height: 1.6;
   font-size: 0.95rem;
+  margin: 0;
 }
 
 .codeBadge {
-  background: rgba(245, 158, 11, 0.15);
-  color: #fbbf24;
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   font-family: monospace;

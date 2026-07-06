@@ -1,45 +1,72 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { 
+  ArrowRight, GitFork, Download, GitBranch, 
+  MessageSquare, Code, CheckCircle, GitCommit, 
+  Upload, GitPullRequest, Eye, PartyPopper 
+} from "lucide-react";
 import styles from "./ContributeSection.module.css";
 
 const steps = [
   {
-    num: "01",
-    title: "Fork & branch",
-    desc: "Fork the repo, create a branch named after your project, e.g. add-your-project."
+    icon: GitFork,
+    title: "1. Fork the Repository",
+    desc: "Create a personal copy of the BuildVerse repository on your own GitHub account."
   },
   {
-    num: "02",
-    title: "Create your folder",
-    desc: "Under Projects/, in Title Case with real spaces — like To Do Web App."
+    icon: Download,
+    title: "2. Clone the Repository",
+    desc: "Download your forked repository to your local machine to start making changes."
   },
   {
-    num: "03",
-    title: "Add the required files",
-    desc: "README.md, project.json and index.html. No build step, ever."
+    icon: GitBranch,
+    title: "3. Create a New Branch",
+    desc: "Create a separate branch for your feature or project to keep things organized."
   },
   {
-    num: "04",
-    title: "Open a pull request",
-    desc: "Use the New Project template. Once merged, the showcase rebuilds automatically."
+    icon: MessageSquare,
+    title: "4. Choose or Create an Issue",
+    desc: "Find an existing issue to work on, or open a new one to propose your project."
+  },
+  {
+    icon: Code,
+    title: "5. Implement Your Changes",
+    desc: "Add your code, ensuring it follows the community guidelines and standard structure."
+  },
+  {
+    icon: CheckCircle,
+    title: "6. Test Your Changes",
+    desc: "Run the project locally to verify that everything works flawlessly without errors."
+  },
+  {
+    icon: GitCommit,
+    title: "7. Commit with a Meaningful Message",
+    desc: "Write a clear, descriptive commit message explaining the changes you made."
+  },
+  {
+    icon: Upload,
+    title: "8. Push Your Branch",
+    desc: "Upload your local branch back up to your forked repository on GitHub."
+  },
+  {
+    icon: GitPullRequest,
+    title: "9. Create a Pull Request",
+    desc: "Submit a PR to the main BuildVerse repository to request your changes be merged."
+  },
+  {
+    icon: Eye,
+    title: "10. Wait for Review",
+    desc: "Our maintainers will review your PR. Make any requested changes if necessary."
+  },
+  {
+    icon: PartyPopper,
+    title: "11. Celebrate Your Contribution 🎉",
+    desc: "Once merged, your work will be live on BuildVerse for the world to see!"
   }
 ];
 
 export default function ContributeSection() {
-  const renderDescription = (desc) => {
-    // Basic parser to wrap specific keywords in codeBadge class to match the design exactly
-    const parts = desc.split(/(add-your-project|Projects\/|To Do Web App|README\.md|project\.json|index\.html)/);
-    
-    return parts.map((part, index) => {
-      if (['add-your-project', 'Projects/', 'To Do Web App', 'README.md', 'project.json', 'index.html'].includes(part)) {
-        return <span key={index} className={styles.codeBadge}>{part}</span>;
-      }
-      return part;
-    });
-  };
-
   return (
     <section id="contribute" className={styles.section}>
       <div className="container">
@@ -51,7 +78,7 @@ export default function ContributeSection() {
           transition={{ duration: 0.6 }}
           className={styles.header}
         >
-          <h2 className={styles.title}>Contribute in four steps</h2>
+          <h2 className={styles.title}>Contribution Guide</h2>
         </motion.div>
 
         <div className={styles.grid}>
@@ -61,14 +88,17 @@ export default function ContributeSection() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className={styles.card}
             >
-              <div className={styles.stepNumber}>{step.num}</div>
+              <div className={styles.glow} />
+              
+              <div className={styles.iconWrapper}>
+                <step.icon size={28} />
+              </div>
+              
               <h3 className={styles.cardTitle}>{step.title}</h3>
-              <p className={styles.cardDesc}>
-                {renderDescription(step.desc)}
-              </p>
+              <p className={styles.cardDesc}>{step.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -77,11 +107,11 @@ export default function ContributeSection() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className={styles.footer}
         >
           <p className={styles.ctaText}>
-            Contribute in Steps — Read the full guide in <span className={styles.codeBadge} style={{ color: '#a855f7', background: 'rgba(168, 85, 247, 0.15)' }}>CONTRIBUTING.md</span>.
+            Contribute in Steps — Read the full guide in <span className={styles.codeBadge}>CONTRIBUTING.md</span>.
           </p>
           <a 
             href="https://github.com/MistryVishwa/BuildVerse?tab=contributing-ov-file" 
