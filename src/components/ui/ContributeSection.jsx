@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { 
   ArrowRight, GitFork, Download, GitBranch, 
   MessageSquare, Code, CheckCircle, GitCommit, 
-  Upload, GitPullRequest, Eye, PartyPopper 
+  Upload, GitPullRequest 
 } from "lucide-react";
 import styles from "./ContributeSection.module.css";
 
@@ -53,16 +53,6 @@ const steps = [
     icon: GitPullRequest,
     title: "9. Create a Pull Request",
     desc: "Submit a PR to the main BuildVerse repository to request your changes be merged."
-  },
-  {
-    icon: Eye,
-    title: "10. Wait for Review",
-    desc: "Our maintainers will review your PR. Make any requested changes if necessary."
-  },
-  {
-    icon: PartyPopper,
-    title: "11. Celebrate Your Contribution 🎉",
-    desc: "Once merged, your work will be live on BuildVerse for the world to see!"
   }
 ];
 
