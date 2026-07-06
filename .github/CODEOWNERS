@@ -1,0 +1,6 @@
+# This file designates code owners for the repository.
+# Code owners will automatically be requested for review when a PR modifies files they own.
+
+# By default, MistryVishwa owns everything in the repository.
+# No Pull Request can be merged without their approval.
+*       @MistryVishwa
